@@ -18,8 +18,14 @@
     <update id="updateUser" parameterType="com.qin.entity.User">
         update user set username=#{username},password=#{password} where id=#{id};
     </update>
-    
+
+    <!--删除语句-->
     <delete id="deleteUser" parameterType="com.qin.entity.User">
         delete  from user where id=#{id}
     </delete>
+
+    <!--模糊查询-->
+    <select id="findUserByName" resultType="com.qin.entity.User" >
+        select * from user where username like #{name}"%"
+    </select>
 </mapper>

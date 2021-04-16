@@ -4,6 +4,7 @@ import com.qin.entity.User;
 import com.qin.mapper.UserMapper;
 import com.qin.tool.MyBatisTool;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.util.List;
 
@@ -45,14 +46,19 @@ public class Application {
             }*/
 
             /*删除用户*/
-            int i = mapper.deleteUser(4);
+            /*int i = mapper.deleteUser(4);
             sqlSession.commit();
             if (i>0){
                 System.out.println("删除成功...");
             }else {
                 System.out.println("删除失败...");
-            }
+            }*/
 
+            /*模糊查询*/
+            List<User> name = mapper.findUserByName("李");/*通配符传值%%*/
+            for (User user : name) {
+                System.out.println(user);
+            }
         }
         catch (Exception e){
             e.printStackTrace();

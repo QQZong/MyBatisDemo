@@ -18,4 +18,7 @@ public interface UserMapper {
 
     /*删除用户*/
     int deleteUser(int id);
+
+    /*模糊查询*/
+    List<User> findUserByName(String name);
 }
