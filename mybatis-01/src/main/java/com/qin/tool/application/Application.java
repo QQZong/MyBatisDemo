@@ -1,10 +1,9 @@
-package com.qin.application;
+package com.qin.tool.application;
 
-import com.qin.entity.User;
-import com.qin.mapper.UserMapper;
-import com.qin.tool.MyBatisTool;
+import com.qin.tool.entity.User;
+import com.qin.tool.mapper.UserMapper;
+import com.qin.tool.tool.MyBatisTool;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.util.List;
 

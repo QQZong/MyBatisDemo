@@ -1,6 +1,7 @@
 package com.qin.mapper;
 
-import com.qin.entity.User;
+import com.qin.pojo.User;
+
 import java.util.List;
 
 public interface UserMapper {

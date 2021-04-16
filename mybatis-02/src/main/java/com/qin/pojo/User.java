@@ -1,5 +1,9 @@
-package com.qin.entity;
+package com.qin.pojo;
 
+import org.apache.ibatis.type.Alias;
+
+/*类名起别名*/
+/*@Alias("user")*/
 public class User {
     public int id;
     public String username;
