@@ -28,7 +28,10 @@
             </dataSource>
         </environment>
     </environments>
+
+    <!--绑定接口-->
     <mappers>
-        <mapper resource="com/qin/mapper/UserMapper.xml"/>
+        <mapper class="com.qin.mapper.UserMapper"/>
+        <!--<mapper resource="****/*mapper.xml"/>-->
     </mappers>
 </configuration>

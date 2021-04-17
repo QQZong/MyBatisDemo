@@ -28,4 +28,9 @@
     <select id="findUserByName" resultType="User" >
         select * from user where username like #{name}"%"
     </select>
+    
+    <!--分页查询-->
+    <select id="getUserLimit" parameterType="map" resultType="User">
+        select * from user limit #{startIndex},#{pageSize}
+    </select>
 </mapper>
