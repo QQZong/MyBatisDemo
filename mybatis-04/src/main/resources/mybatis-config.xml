@@ -12,11 +12,13 @@
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
+    <!--起别名-->
     <typeAliases>
         <typeAlias type="com.qin.entity.Teacher" alias="teacher"/>
-        <!--<package name="com.qin.pojo"/>-->
+        <typeAlias type="com.qin.entity.Student" alias="student"/>
     </typeAliases>
 
+    <!--数据库环境-->
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -32,5 +34,6 @@
     <!--绑定接口-->
     <mappers>
         <mapper class="com.qin.mapper.TeacherMapper"/>
+        <mapper resource="com/qin/mapper/StudentMapper.xml"/>
     </mappers>
 </configuration>
