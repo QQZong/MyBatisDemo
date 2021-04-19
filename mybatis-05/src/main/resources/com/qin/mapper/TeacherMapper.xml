@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qin.mapper.TeacherMapper">
+
+    <!--按照结果嵌套-->
+    <select id="getTeacher" resultMap="StudentAndTeacher">
+        SELECT s.id sid,sname,tname FROM student s,teacher t
+    </select>
+    <resultMap id="StudentAndTeacher" type="Teacher">
+        <result property="id" column="id"/>
+        <result property="tName" column="tname"/>
+        <collection property="studentList" ofType="Student">
+            <result property="id" column="sid"/>
+            <result property="sName" column="sname"/>
+        </collection>
+    </resultMap>
+
+    <!--按照查询嵌套-->
+    <!--桌面-->
+</mapper>
