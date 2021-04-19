@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qin.mapper.StudentMapper">
+
+    <select id="getStudentWayTow" resultMap="getStudent">
+        select s.id sid,sname,tname from mybatis.student s ,mybatis.teacher t where s.tid = t.id;
+    </select>
+    <resultMap id="getStudent" type="Student">
+        <result property="id" column="sid"/>
+        <result property="sName" column="sname"/>
+        <association property="teacher" javaType="Teacher">
+            <result property="tName" column="tname"/>
+        </association>
+    </resultMap>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--方式一-->
+    <select id="getStudent" resultMap="StudentAndTeacher">
+        select * from student
+    </select>
+    
+    <resultMap id="StudentAndTeacher" type="Student">
+        <result property="id" column="id"/>
+        <result property="sName" column="sname"/>
+        <!--复杂的属性需要单独处理 association:对象 collection:集合 -->
+        <association property="teacher" column="tid" javaType="Teacher" select="getTeacher"/>
+    </resultMap>
+
+    <select id="getTeacher" resultType="Teacher">
+        select * from teacher
+    </select>
+</mapper>
